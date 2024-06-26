@@ -7,7 +7,10 @@ services:
     labels:
       - "com.docker.compose.project="    
     ports:
-      - "9993:9993/udp"
+      - "9993:9993"
+    cap_add:
+      - NET_ADMIN
+      - SYS_ADMIN
     volumes:
       - zerotier_data:/var/lib/zerotier-one
     deploy:
