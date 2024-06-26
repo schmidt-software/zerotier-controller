@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  zerotier:
+    build: .
+    image: ghcr.io/schmidt-software/zerotier-controller:latest
+    container_name: zerotier
+    ports:
+      - "9993:9993/udp"
+    cap_add:
+      - NET_ADMIN
+      - SYS_ADMIN
+    volumes:
+      - zerotier_data:/var/lib/zerotier-one
+    deploy:
+      restart_policy:
+        condition: any
+
+volumes:
+  zerotier_data:
+    driver: local
