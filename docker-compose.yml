@@ -4,12 +4,10 @@ services:
   zerotier:
     build: .
     image: ghcr.io/schmidt-software/zerotier-controller:latest
-    container_name: zerotier
+    labels:
+      - "com.docker.compose.project="    
     ports:
       - "9993:9993/udp"
-    cap_add:
-      - NET_ADMIN
-      - SYS_ADMIN
     volumes:
       - zerotier_data:/var/lib/zerotier-one
     deploy:
