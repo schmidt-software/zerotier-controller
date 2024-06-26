@@ -9,15 +9,20 @@ services:
     ports:
       - "9993:9993/udp"
       - "9993:9993/tcp"
+      - "3001:3000"
+      - "3443:3443"
     cap_add:
       - NET_ADMIN
       - SYS_ADMIN
     volumes:
       - zerotier_data:/var/lib/zerotier-one
+      - zerotier_gui:/opt/ztncui/src/etc
     deploy:
       restart_policy:
         condition: any
 
 volumes:
   zerotier_data:
+    driver: local
+  zerotier_gui:
     driver: local
