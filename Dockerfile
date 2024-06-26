@@ -10,4 +10,6 @@ RUN apt-get update \
         iftop \
     && curl -s https://install.zerotier.com/ | bash
 
+COPY local.conf /var/lib/zerotier-one
+
 ENTRYPOINT ["/usr/sbin/zerotier-one"]
