@@ -1,6 +1,6 @@
 FROM debian:stable-slim
 
-LABEL maintainer "Michael Schmidt <schmidt.software@gmail.com>"
+LABEL maintainer="Michael Schmidt <schmidt.software@gmail.com>"
 
 RUN apt-get update \
     && apt-get dist-upgrade \
